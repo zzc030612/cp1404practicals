@@ -1,21 +1,19 @@
-def determine_grade(score):
-    if not (0 <= score <= 100):
-        return "Invalid score"
-    elif score >= 90:
-        return "Excellent"
-    elif score >= 50:
-        return "Passable"
-    else:
-        return "Bad"
+# a. Counting in 10s from 0 to 100
+for i in range(0, 101, 10):
+    print(i, end=' ')
+print()
 
+# b. Counting down from 20 to 1
+for i in range(20, 0, -1):
+    print(i, end=' ')
+print()
 
-def main():
-    try:
-        score = float(input("Enter score: "))
-        print(determine_grade(score))
-    except ValueError:
-        print("Invalid input. Please enter a numeric value.")
+# c. Print n stars on one line
+n = int(input("Number of stars: "))
+for i in range(n):
+    print('*', end='')
+print()
 
-
-if __name__ == "__main__":
-    main()
+# d. Print n lines of increasing stars
+for i in range(1, n + 1):
+    print('*' * i)
