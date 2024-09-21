@@ -1,38 +1,19 @@
-def calculate_total_price(num_items):
-    total_price = 0
+"""
+Program to calculate the total price for a number of items, applying a discount if the total is over $100.
+"""
 
-    for _ in range(num_items):
-        while True:
-            try:
-                item_price = float(input("Price of item: "))
-                if item_price < 0:
-                    raise ValueError("Price cannot be negative")
-                break
-            except ValueError as e:
-                print(f"Error: {e}. Please enter a valid price.")
+num_items = int(input("Number of items: "))
 
-        total_price += item_price
+while num_items < 0:
+    print("Invalid number of items!")
+    num_items = int(input("Number of items: "))
 
-    return total_price
+total_price = 0
+for i in range(num_items):
+    price = float(input(f"Price of item {i + 1}: "))
+    total_price += price
 
+if total_price > 100:
+    total_price *= 0.9  # Apply 10% discount
 
-def main():
-    while True:
-        try:
-            num_items = int(input("Number of items: "))
-            if num_items < 0:
-                raise ValueError("Invalid number of items!")
-            break
-        except ValueError as e:
-            print(f"Error: {e}. Please enter a valid number of items.")
-
-    total_price = calculate_total_price(num_items)
-
-    if total_price > 100:
-        total_price *= 0.9
-
-    print(f"Total price for {num_items} items is ${total_price:.2f}")
-
-
-if __name__ == "__main__":
-    main()
+print(f"Total price for {num_items} items is ${total_price:.2f}")
